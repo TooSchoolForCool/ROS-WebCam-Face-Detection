@@ -21,7 +21,9 @@ vector<Rect> detect(const Mat &frame)
 
     vector<Rect> faces;
     Mat frame_gray;
+    
     cvtColor( frame, frame_gray, COLOR_BGR2GRAY );
+    flip(frame_gray, frame_gray, 1);
     equalizeHist( frame_gray, frame_gray );
 
     face_cascade.detectMultiScale( frame_gray, faces, 1.1, 2, 0|CASCADE_SCALE_IMAGE, Size(30, 30) );
@@ -44,7 +46,7 @@ bool detect_faces(face_detection::FaceDetection::Request &req,
         bb.y = rects[i].tl().y;
         bb.width = rects[i].width;
         bb.height = rects[i].height;
-        
+
         res.faces.push_back(bb);
     }
 

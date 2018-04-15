@@ -22,7 +22,9 @@ void viewerCallback(const sensor_msgs::ImageConstPtr &msg)
     }
 
     cv::Mat detected_frame(cv_img_ptr->image);
+    flip(detected_frame, detected_frame, 1);
 
+    // Call face_detection service
     face_detection::FaceDetection srv;
     srv.request.image = *msg;
 
