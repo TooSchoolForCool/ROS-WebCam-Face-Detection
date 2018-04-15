@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+    <group ns="webcam">
+        <node pkg="cv_webcam" type="webcam_driver" name="webcam_driver" output="screen">
+            <remap from="webcam_frame" to="image_raw" />
+        </node>
+
+        <node pkg="face_detection" type="face_detection_server" name="face_detection_server"></node>
+
+        <node pkg="face_detection" type="face_detection_client" name="face_detection_client">
+            <remap from="image" to="image_raw"/>
+        </node>
+    </group>
+</launch>

@@ -1,2 +1,2 @@
 - setup-file:
-    local-name: /media/psf/ROS-WebCam-Face-Detection/devel/setup.sh
+    local-name: /home/zeyuzhang/Workspace/ROS-WebCam-Face-Detection/devel/setup.sh
