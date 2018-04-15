@@ -6,12 +6,12 @@
 
 void viewerCallback(const sensor_msgs::ImageConstPtr &msg)
 {
-	cv_bridge::CvImagePtr cv_img_ptr;
+    cv_bridge::CvImagePtr cv_img_ptr;
 
-	try{
-		cv_img_ptr = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::BGR8);
-	} 
-	catch (cv_bridge::Exception& e) {  
+    try{
+        cv_img_ptr = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::BGR8);
+    } 
+    catch (cv_bridge::Exception& e) {  
         ROS_ERROR("[ERROR] cv_bridge exception: %s", e.what());  
         return;
     } 
@@ -22,12 +22,12 @@ void viewerCallback(const sensor_msgs::ImageConstPtr &msg)
 
 int main(int argc, char **argv)
 {
-	ros::init(argc, argv, "webcam_viewer");
-	ros::NodeHandle nh;
+    ros::init(argc, argv, "webcam_viewer");
+    ros::NodeHandle nh;
 
-	image_transport::ImageTransport it(nh);
-	image_transport::Subscriber sub = it.subscribe("webcam_frame", 1, viewerCallback);
+    image_transport::ImageTransport it(nh);
+    image_transport::Subscriber sub = it.subscribe("webcam_frame", 1, viewerCallback);
 
-	ros::spin();
-	return 0;
+    ros::spin();
+    return 0;
 }
