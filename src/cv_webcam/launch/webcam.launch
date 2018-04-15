@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+	<group ns="webcam">
+		<node pkg="cv_webcam" type="webcam_driver" name="webcam_driver" output="screen">
+			<remap from="webcam_frame" to="image_raw" />
+		</node>
+
+		<node pkg="image_view" type="image_view" name="ros_image_viewer">
+			<remap from="image" to="image_raw"/>
+		</node>
+	</group>
+</launch>
