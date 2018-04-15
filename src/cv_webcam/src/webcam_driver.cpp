@@ -7,7 +7,7 @@
 
 int main(int argc, char **argv)
 {
-	ros::init(argc, argv, "cv_webcam");
+	ros::init(argc, argv, "webcam_driver");
 	ros::NodeHandle nh;
 
 	image_transport::ImageTransport it(nh);

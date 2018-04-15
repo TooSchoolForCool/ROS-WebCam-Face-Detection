@@ -5,8 +5,8 @@
 			<remap from="webcam_frame" to="image_raw" />
 		</node>
 
-		<node pkg="image_view" type="image_view" name="ros_image_viewer">
-			<remap from="image" to="image_raw"/>
+		<node pkg="cv_webcam" type="webcam_viewer" name="ros_image_viewer">
+			<remap from="webcam_frame" to="image_raw"/>
 		</node>
 	</group>
 </launch>
