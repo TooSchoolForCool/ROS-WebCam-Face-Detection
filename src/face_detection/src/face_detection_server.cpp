@@ -9,7 +9,9 @@
 using namespace std;
 using namespace cv;
 
-#define FACE_CASCADE_PATH "/media/psf/ROS-WebCam-Face-Detection/src/cv_webcam/assets/haarcascade_frontalface_alt2.xml"
+#define FACE_CASCADE_PATH "/media/psf/ROS-WebCam-Face-Detection/src/cv_webcam/assets/haarcascade_frontalface_alt.xml"
+// #define FACE_CASCADE_PATH "/media/psf/ROS-WebCam-Face-Detection/src/cv_webcam/assets/lbpcascade_frontalface_improved.xml"
+
 
 vector<Rect> detect(const Mat &frame)
 {
@@ -21,7 +23,7 @@ vector<Rect> detect(const Mat &frame)
 
     vector<Rect> faces;
     Mat frame_gray;
-    
+
     cvtColor( frame, frame_gray, COLOR_BGR2GRAY );
     flip(frame_gray, frame_gray, 1);
     equalizeHist( frame_gray, frame_gray );
@@ -30,6 +32,7 @@ vector<Rect> detect(const Mat &frame)
 
     return faces;
 }
+
 
 bool detect_faces(face_detection::FaceDetection::Request &req,
     face_detection::FaceDetection::Response &res)
@@ -52,6 +55,7 @@ bool detect_faces(face_detection::FaceDetection::Request &req,
 
     return true;
 }
+
 
 int main(int argc, char **argv)
 {
