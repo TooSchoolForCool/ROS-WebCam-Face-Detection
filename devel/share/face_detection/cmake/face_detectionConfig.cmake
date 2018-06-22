@@ -67,14 +67,14 @@ set(face_detection_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(face_detection_SOURCE_PREFIX /home/zeyuzhang/Workspace/ROS-WebCam-Face-Detection/src/face_detection)
-  set(face_detection_DEVEL_PREFIX /home/zeyuzhang/Workspace/ROS-WebCam-Face-Detection/devel)
+  set(face_detection_SOURCE_PREFIX /media/psf/ROS-WebCam-Face-Detection/src/face_detection)
+  set(face_detection_DEVEL_PREFIX /media/psf/ROS-WebCam-Face-Detection/devel)
   set(face_detection_INSTALL_PREFIX "")
   set(face_detection_PREFIX ${face_detection_DEVEL_PREFIX})
 else()
   set(face_detection_SOURCE_PREFIX "")
   set(face_detection_DEVEL_PREFIX "")
-  set(face_detection_INSTALL_PREFIX /home/zeyuzhang/Workspace/ROS-WebCam-Face-Detection/install)
+  set(face_detection_INSTALL_PREFIX /media/psf/ROS-WebCam-Face-Detection/install)
   set(face_detection_PREFIX ${face_detection_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(face_detection_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/zeyuzhang/Workspace/ROS-WebCam-Face-Detection/devel/include " STREQUAL " ")
+if(NOT "/media/psf/ROS-WebCam-Face-Detection/devel/include " STREQUAL " ")
   set(face_detection_INCLUDE_DIRS "")
-  set(_include_dirs "/home/zeyuzhang/Workspace/ROS-WebCam-Face-Detection/devel/include")
+  set(_include_dirs "/media/psf/ROS-WebCam-Face-Detection/devel/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT "https://github.com/TooSchoolForCool/ROS-WebCam-Face-Detection " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/zeyuzhang/Workspace/ROS-WebCam-Face-Detection/devel/include " STRE
         message(FATAL_ERROR "Project 'face_detection' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'face_detection' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/zeyuzhang/Workspace/ROS-WebCam-Face-Detection/src/face_detection/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'face_detection' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/media/psf/ROS-WebCam-Face-Detection/src/face_detection/${idir}'.  ${_report}")
     endif()
     _list_append_unique(face_detection_INCLUDE_DIRS ${include})
   endforeach()
@@ -129,7 +129,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/zeyuzhang/Workspace/ROS-WebCam-Face-Detection/devel/lib;/opt/ros/kinetic/lib)
+    foreach(path /media/psf/ROS-WebCam-Face-Detection/devel/lib;/opt/ros/kinetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

@@ -1,14 +1,16 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(cv_webcam)
 
-find_package(catkin REQUIRED COMPONENTS
-  roscpp
-  rospy
-  cv_bridge
-  image_transport
-  std_msgs
-  OpenCV
+find_package(
+    catkin REQUIRED COMPONENTS
+    roscpp
+    rospy
+    cv_bridge
+    image_transport
+    std_msgs
 )
+
+find_package(OpenCV REQUIRED)
 
 catkin_package()
 
